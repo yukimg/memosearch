@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   def index
       # @posts = Post.all
       if params[:keyword].blank?
-        @posts = Post.all
+        @posts = Post.all.page(params[:page]).per(10)
       else
         @posts = Post.where('word like ? or description like ?', "%#{params[:keyword]}%", "%#{params[:keyword]}%")
       end
