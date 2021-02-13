@@ -1,0 +1,17 @@
+<div class="text-center">
+  <h1><span class="border-bottom border-dark">Details</span></h1>
+  
+  <div class="mt-5">
+  <h3><% @post.id %><%= @post.word %></h3>
+  
+  <p><span class="border border-dark"><%= @post.description %></span></p>
+  </div>
+  
+  <div class="mt-5">
+  <%= link_to 'To Edit', edit_post_path(@post), class: 'btn btn-outline-dark' %>
+  <%= link_to 'Delates', @post, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-outline-dark' %>
+  </div> 
+</div>
+
+
+
