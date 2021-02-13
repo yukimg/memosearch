@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   
   def index
       # @posts = Post.all
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     
     if @post.save
       flash[:success] = '追加されました'
-      redirec_to @post
+      redirect_to @post
     else
       flash.now[:danger] = '追加されませんでした'
       render :new
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
     
     if @post.save
       flash[:success] = '正常に更新されました'
-      redirec_to @post
+      redirect_to @post
     else
       flash.now[:danger] = '更新されませんでした'
       render :new
@@ -57,7 +57,7 @@ class PostsController < ApplicationController
   end
 
   # Strong Parameter
-  def message_params
+  def post_params
     params.require(:post).permit(:word, :description)
   end
 end
