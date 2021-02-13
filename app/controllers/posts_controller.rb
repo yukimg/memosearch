@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  
   def index
       # @posts = Post.all
       if params[:keyword].blank?
@@ -9,7 +11,6 @@ class PostsController < ApplicationController
   end
 
   def show
-      @post = Post.find(params[:id])
   end
 
   def new
@@ -29,11 +30,9 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
     
     if @post.save
       flash[:success] = '正常に更新されました'
@@ -45,7 +44,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     
     flash[:success] = '正常に削除されました'
@@ -53,6 +51,10 @@ class PostsController < ApplicationController
   end
   
   private
+  
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
   # Strong Parameter
   def message_params
