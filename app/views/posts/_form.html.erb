@@ -1,14 +1,15 @@
-<%= form_with(model: post, local: true) do |f| %>
- <% if post.errors.any? %>
-    <div id="error_explanation">
-      <ul>
+
+  <%= form_with(model: post, local: true) do |f| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation" class="alert alert-warning col-6 mx-auto">
+      <ul class="mb-0">
         <% post.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
     </div>
-  <% end %>
-  
+ <% end %>
+
   <div class="form-group mt-5">
       <div class="form-inline mx-auto">
           <div class="offset-3 col-3"><%= f.label :word, 'Word', class: 'control-label' %></div>
