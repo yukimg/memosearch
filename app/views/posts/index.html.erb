@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="mx-auto">
-        <%= form_with(url: root_path, method: :get, class: "form-inline-sm", local: true) do |f| %>
-        <div class="mt-5" >
-                <%= text_field_tag :keyword %>
-                <%= f.submit 'Search',class: 'btn btn-outline-dark ml-5' %>
+    <div class="text-center offset-2 col-8">
+        <%= form_with(url: root_path, method: :get, class: "form-inline offset-3 col-6", local: true) do |f| %>
+        <div class="mt-5">
+                <%= text_field_tag :keyword , nil, class: 'form-control' %>
+                <%= f.submit 'Search',class: 'btn btn-outline-dark' %>
         </div>
  　　　　　<% end %>
     </div>
@@ -11,7 +11,7 @@
 
 
 <div class="row">
-    <div class="mx-auto">
+    <div class="offset-3 col-6">
         <ul>
             <% @posts.each do |post| %>
             <div class="mt-5"><li><%= link_to post.word, post %>・・・<%= post.description %></li></div>
@@ -22,7 +22,8 @@
 
 <%= paginate @posts %>
 
-<div class="col-2 mx-auto mt-5">
+<div class="text-center offset-5 col-2 mt-5">
     <%= link_to 'Add Note', new_post_path, class: "btn btn-outline-dark btn-block" %>
 </div>
+ 
  

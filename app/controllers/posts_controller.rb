@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :require_user_logged_in
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -6,7 +7,7 @@ class PostsController < ApplicationController
       if params[:keyword].blank?
         @posts = Post.all.page(params[:page]).per(10)
       else
-        @posts = Post.where('word like ? or description like ?', "%#{params[:keyword]}%", "%#{params[:keyword]}%")
+        @posts = Post.where('word like ? or description like ?', "%#{params[:keyword]}%", "%#{params[:keyword]}%").page(params[:page]).per(10)
       end
   end
 

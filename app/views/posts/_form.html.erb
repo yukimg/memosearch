@@ -1,7 +1,7 @@
 
   <%= form_with(model: post, local: true) do |f| %>
   <% if post.errors.any? %>
-    <div id="error_explanation" class="alert alert-warning col-6 mx-auto">
+    <div id="error_explanation" class="alert alert-warning text-center offset-3 col-6">
       <ul class="mb-0">
         <% post.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -11,20 +11,20 @@
  <% end %>
 
   <div class="form-group mt-5">
-      <div class="form-inline mx-auto">
-          <div class="offset-3 col-3"><%= f.label :word, 'Word', class: 'control-label' %></div>
-          <div class="col-3"><%= f.text_field :word, class: 'form-control' , size: 30 %></div>
+      <div class="form-inline offset-2 col-8">
+          <div class="offset-1 col-2"><%= f.label :word, 'Word', class: 'control-label' %></div>
+          <div class="offset-3 col-6"><%= f.text_field :word, class: 'form-control' , size: 30 %></div>
       </div>
   </div>
   
   <div class="form-group">
-      <div class="form-inline mx-auto">
-          <div class="offset-3 col-3"><%= f.label :Description, 'Description' %></div>
-          <div class="col-6"><%= f.text_area :description, class: "form-control" , size: "30x10" %></div>
+      <div class="form-inline offset-2 col-8">
+          <div class="offset-1 col-2"><%= f.label :Description, 'Description' %></div>
+          <div class="offset-3 col-6"><%= f.text_area :description, class: "form-control" , size: "30x10" %></div>
       </div>
   </div>
   
-  <div class="col-7 mx-auto mt-5">
+  <div class="offset-2 col-8 mt-5">
   <%= f.submit 'Add',class: 'btn btn-outline-dark btn-block' %>
   </div>
  <% end %>
