@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="text-center offset-2 col-8">
-        <%= form_with(url: root_path, method: :get, class: "form-inline offset-3 col-6", local: true) do |f| %>
+    <div class="text-center col-12">
+        <%= form_with(url: root_path, method: :get, class: "form-inline offset-4 col-4", local: true) do |f| %>
         <div class="mt-5">
-                <%= text_field_tag :keyword , nil, class: 'form-control' %>
-                <%= f.submit 'Search',class: 'btn btn-outline-dark' %>
+                <%= text_field_tag :keyword, params[:keyword], class: 'form-control' %>
+                <%= f.submit 'Search',class: 'btn btn-outline-secondary' %>
         </div>
  　　　　　<% end %>
     </div>
@@ -23,7 +23,7 @@
 <%= paginate @posts %>
 
 <div class="text-center offset-5 col-2 mt-5">
-    <%= link_to 'Add Note', new_post_path, class: "btn btn-outline-dark btn-block" %>
+    <%= link_to 'Add Note', new_post_path, class: "btn btn-outline-secondary" %>
 </div>
  
  

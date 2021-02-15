@@ -1,13 +1,14 @@
 class PostsController < ApplicationController
   before_action :require_user_logged_in
+  before_action :correct_user, only: [:show, :edit, :destroy, :update]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   
   def index
       # @posts = Post.all
       if params[:keyword].blank?
-        @posts = Post.all.page(params[:page]).per(10)
+        @posts = current_user.posts.page(params[:page]).per(10)
       else
-        @posts = Post.where('word like ? or description like ?', "%#{params[:keyword]}%", "%#{params[:keyword]}%").page(params[:page]).per(10)
+        @posts = current_user.posts.where('word like ? or description like ?', "%#{params[:keyword]}%", "%#{params[:keyword]}%").page(params[:page]).per(10)
       end
   end
 
@@ -19,7 +20,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
     
     if @post.save
       flash[:success] = '追加されました'
@@ -61,4 +62,11 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:word, :description)
   end
+  
+  def correct_user
+      @post = current_user.posts.find_by(id: params[:id])
+      unless @post
+      redirect_to root_url
+      end
+  end 
 end
