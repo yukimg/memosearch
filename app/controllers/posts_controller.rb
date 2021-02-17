@@ -35,13 +35,12 @@ class PostsController < ApplicationController
   end
 
   def update
-    
-    if @post.save
+    if @post.update(post_params)
       flash[:success] = '正常に更新されました'
       redirect_to @post
     else
       flash.now[:danger] = '更新されませんでした'
-      render :new
+      render :edit
     end
   end
 
