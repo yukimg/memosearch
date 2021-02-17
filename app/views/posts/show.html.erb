@@ -1,15 +1,20 @@
 <div class="text-center mt-5">
   <h1><span class="border-bottom border-dark">Details</span></h1>
-  
-  <div class="mt-5">
-      <h3><%= @post.word %></h3>
-  <div class="row">
-      <div class="text-left border border-dark offset-4 col-4" style="word-break: break-all;">
-          <%= safe_join(@post.description.split("\n"),tag(:br)) %>
-      </div>
-  </div>
-  </div>
 </div>
+  
+  <div class="row">
+  <div class="offset-3 col-6">
+  <div class="card mt-5" style="max-width: 34rem;">
+    <h3 class="card-header text-center">
+        <%= @post.word %>
+    </h3>
+    <ul class="list-group list-group-flush" style="word-break: break-all;">
+        <li class="list-group-item"><%= safe_join(@post.description.split("\n"),tag(:br)) %></li>
+    </ul>
+    </div>
+</div>
+</div>
+ 
  
  <div class="row" >
    <div class=" text-center offset-4 col-4 mt-5">
