@@ -14,7 +14,7 @@
     <div class="offset-3 col-6" style="word-break: break-all;">
         <ul>
             <% @posts.each do |post| %>
-             <div class="mt-5"><li><%= link_to post.word, post %>・・・<%= post.description %></li></div>
+             <li class="mt-5"><%= link_to post.word, post %>・・・<%= post.description %></li>
             <% end %>
         </ul>
     </div>
