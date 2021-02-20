@@ -1,4 +1,4 @@
-<header class="mb-4">
+<header class="mb-sm-4">
   <nav class="navbar navbar-expand-sm navbar-light bg-light">
     <a class="navbar-brand" href="/">Memo Search</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
@@ -16,7 +16,8 @@
               </ul>
           </li>
           <% else %>
-
+          <li class="nav-item"><%= link_to 'Signup', signup_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to 'Login', login_path, class: 'nav-link' %></li>
           <% end %>
       </ul>
     </div>
